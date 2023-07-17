@@ -1,18 +1,18 @@
 package application;
 
-import java.util.Date;
-
-import enteties.Department;
 import enteties.Seller;
+import enteties.dao.DaoFactory;
+import enteties.dao.SellerDao;
 
 public class Program {
 
 	public static void main(String[] args) {
 		
 		
-		Department departmant = new Department(1, "Book");
 		
-		Seller seller = new Seller(21, "Bob", "bob@gmail.com", new Date(), 300.0, departmant);
+		SellerDao sellerDao = DaoFactory.creatSellerDao();
+		
+		Seller seller= sellerDao.findById(2);
 		
 		System.out.print(seller);
 		
