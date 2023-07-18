@@ -1,8 +1,7 @@
 
 package application;
 
-import java.util.Date;
-import java.util.List;
+import java.util.Scanner;
 
 import enteties.Department;
 import enteties.Seller;
@@ -12,19 +11,17 @@ import enteties.dao.SellerDao;
 public class Program {
 
 	public static void main(String[] args) {
-		
+		Scanner sc = new Scanner(System.in);
 		
 		
 		SellerDao sellerDao = DaoFactory.creatSellerDao();
 		
 		Department department = new Department(2, null);
-		Seller seller=  new Seller(null, "Greg", "greg@Hotmail.com", new Date(), 4000.0, department);
-		sellerDao.insert(seller);
+		Seller seller=  new Seller();
 		
-		System.out.println("new id = " + seller.getId());
-		
-		
-		List<Seller> list = sellerDao.findAll();
+		int id = sc.nextInt();
+		sellerDao.deleteByld(id);
+		sc.close();
 		
 		//for(Seller obg: list) {
 			//System.out.println(obg);
