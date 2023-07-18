@@ -1,5 +1,7 @@
+
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import enteties.Department;
@@ -15,17 +17,18 @@ public class Program {
 		
 		SellerDao sellerDao = DaoFactory.creatSellerDao();
 		
-		Seller seller= sellerDao.findById(2);
-		
 		Department department = new Department(2, null);
+		Seller seller=  new Seller(null, "Greg", "greg@Hotmail.com", new Date(), 4000.0, department);
+		sellerDao.insert(seller);
 		
-		List<Seller> list = sellerDao.findByDepartment(department);
+		System.out.println("new id = " + seller.getId());
 		
-		for(Seller obg: list) {
-			System.out.println(obg);
-			System.out.println(" ");
+		
+		List<Seller> list = sellerDao.findAll();
+		
+		//for(Seller obg: list) {
+			//System.out.println(obg);
+			//System.out.println(" ");
 		}
 		
 	}
-
-}
